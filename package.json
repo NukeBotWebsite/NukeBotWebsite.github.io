@@ -1,0 +1,22 @@
+{
+  "name": "nukebot.org",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "npx tailwindcss -i ./css/tailwind.css -o ./build/tailwind.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
