@@ -32,12 +32,19 @@
       <div class="flex flex-col h-screen justify-between">
       <header class="py-2.5 bg-black h-auto">
          <div class="mx-auto max-w-screen-lg flex flex-col items-center justify-between px-4 sm:px-6 sm:flex-row md:px-8 xl:px-0">
-            <img src="img/logo.png" alt="logo" class="w-12 h-12">
+            <div class="flex flex-col items-center justify-content: space-x-4 px-4 sm:px-6 sm:flex-row md:px-8 xl:px-0">
+               <div>
+                  <img src="img/logo.png" alt="logo" class="w-12 h-12">
+               </div>
+               <div>
+                  <p class="text-3xl font-bold text-gray-100">NukeBot</p>
+               </div>
+            </div>
             <nav class="flex items-center mt-2 text-sm gap-4 text-gray-200 sm:text-base sm:mt-0 sm:flex-row">
-               <a href="/" class="hover:text-nuke-orange">Home</a>
-               <a href="commands" class="hover:text-nuke-orange">Commands</a>
+               <a href="/index.html" class="hover:text-nuke-orange">Home</a>
+               <a href="/commands.html" class="hover:text-nuke-orange">Commands</a>
                <a href="https://shop.nukebot.org" class="hover:text-nuke-orange">Premium</a>
-               <a href="https://nukebot.org/support" class="hover:text-nuke-orange">Support</a>
+               <a href="/support.html" class="hover:text-nuke-orange">Support</a>
             </nav>
          </div>
       </header>
@@ -139,11 +146,6 @@
                      <td class="border-nuke-gray border py-2 px-4">Shows the bot's latency</td>
                      <td class="border-nuke-gray border py-2 px-4">None (Public)</td>
                   </tr>
-				      <tr>
-                     <td class="border-nuke-gray border py-2 px-4">premium</td>
-                     <td class="border-nuke-gray border py-2 px-4">Informations about NukeBot premium</td>
-                     <td class="border-nuke-gray border py-2 px-4">None (Public)</td>
-                  </tr>
                   <tr>
                      <td class="border-nuke-gray border py-2 px-4">purge</td>
                      <td class="border-nuke-gray border py-2 px-4">Allows to delete a specific amount of messages</td>
@@ -187,8 +189,14 @@
       </main>
       <footer class="h-auto bg-black">
          <div class="mx-auto max-w-screen-lg py-5 flex text-center flex-col justify-between text-gray-200 px-4 sm:px-6 sm:flex-row md:px-8 xl:px-0">
-             <p>Copyright © 2022 NukeBot</p>
-             <a href="legal" class="hover:text-nuke-orange">Disclaimer & Privacy Policy & Contact</a>
+             <p>Copyright © 2023 NukeBot</p>
+             <nav class="flex items-center mt-2 text-sm gap-4 text-gray-200 sm:text-base sm:mt-0 sm:flex-row">
+               <a href="/legal.html" class="hover:text-nuke-orange">Legal Notice</a>
+               <p>|</p>
+               <a href="/tos.html" class="hover:text-nuke-orange">Bot TOS</a>
+               <p>|</p>
+               <a href="/privacy.html" class="hover:text-nuke-orange">Bot privacy policy</a>
+            </nav>
           </div>
      </footer>
    </div>
