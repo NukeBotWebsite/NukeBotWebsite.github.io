@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avances?</title>
+
+    <meta property="og:description" content="ERROR_NO_SUPPORT_CHANNEL" />
+
+    <meta property="og:title" content="is this a support channel?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.nukebot.org/thisisnosupportchannel.png" />
+    <meta property="og:image" content="https://www.nukebot.org/thisisnosupportchannel.png" />
+
+    <meta property="theme-color" content="#330044" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="is this a support channel?" />
+    <meta property="twitter:description" content="ERROR_NO_SUPPORT_CHANNEL" />
+
+    <meta property="twitter:url" content="https://www.nukebot.org/thisisnosupportchannel.png" />
+    <meta property="twitter:image" content="https://www.nukebot.org/thisisnosupportchannel.png" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(26, 28, 29, 0.686);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: grab;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="image-container" id="imageContainer">
+            <img src="https://www.nukebot.org/thisisnosupportchannel.png" id="image">
+        </div>
+    </div>
+
+    <script>
+        const img = document.getElementById('image');
+        const imageContainer = document.getElementById('imageContainer');
+        let zoomLevel = 1;
+        let isZoomed = false;
+        let isDragging = false;
+        let startX, startY, offsetX = 0, offsetY = 0;
+
+        // Prevent default browser drag behavior
+        img.addEventListener('dragstart', (e) => e.preventDefault());
+
+        img.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            zoomLevel += e.deltaY * -0.01;
+            zoomLevel = Math.min(Math.max(zoomLevel, 1), 5); // Limit zoom levels between 1 and 5
+            img.style.transform = `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+            if (zoomLevel > 1) {
+                isZoomed = true;
+            } else {
+                isZoomed = false;
+
+                offsetX = offsetY = 0;
+                img.style.transform = `scale(${zoomLevel}) translate(0, 0)`;
+            }
+        });
+
+        imageContainer.addEventListener('mousedown', function (e) {
+            if (isZoomed) {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.clientX - offsetX;
+                startY = e.clientY - offsetY;
+            }
+        });
+
+        imageContainer.addEventListener('mousemove', function (e) {
+            if (isDragging) {
+                e.preventDefault();
+                offsetX = e.clientX - startX;
+                offsetY = e.clientY - startY;
+                img.style.transform = `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+            }
+        });
+
+        imageContainer.addEventListener('mouseup', function (e) {
+            e.preventDefault();
+
+            isDragging = false;
+        });
+
+        imageContainer.addEventListener('mouseleave', function (e) {
+            e.preventDefault();
+            isDragging = false;
+        });
+
+    </script>
+</body>
+
+</html>
